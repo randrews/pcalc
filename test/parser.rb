@@ -20,4 +20,8 @@ describe "Parser" do
     it "should parse products" do
         tree("2*8 + 4/4").class.should_not==Dhaka::ParseErrorResult
     end
+
+    it "should parse parentheses" do
+        tree("3 * (5 + 6)").class.should_not==Dhaka::ParseErrorResult
+    end
 end
