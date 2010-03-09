@@ -1,0 +1,9 @@
+#!/usr/bin/ruby
+
+require File.join(File.dirname(__FILE__),"..","lib","pcalc.rb")
+
+begin
+    raise RuntimeError.new("Not implemented yet; edit bin/pcalc")
+rescue
+    puts $!.to_s
+end
