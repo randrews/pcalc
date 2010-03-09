@@ -1,16 +1,21 @@
 h1. pcalc
 
-pcalc does something
+pcalc is a very simple language written to help me learn Parrot, and as an example of how to write a compiler using Dhaka that targets PIR.
 
 h2. Basic use
 
-h2. Advanced use
+Right now, pcalc only evaluates simple arithmetic expressions.
 
-h3. A subheader
+h3. Syntax
 
-<pre># Some code
-def foo n
-    n*n
-end</pre>
+Very standard formula syntax: @2*3+5@
 
-@i_am_a(code.snippet)@
+Available operands are +, -, *, /, %. Numbers are all assumed to be floating point.
+
+h3. Using
+
+<pre>require "pcalc"
+str = PCalcEvaluator.evaluate("2*3+5")
+# str now contains a string with PIR that does that formula
+File.open("temp.pir","w"){|f| f.print(str) }
+`parrot temp.pir` # ==> "11"</pre>
