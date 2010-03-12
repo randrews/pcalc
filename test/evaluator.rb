@@ -40,4 +40,8 @@ describe "Evaluator" do
     it "should handle precedence" do
         evaluate("2+3*5").should==17
     end
+
+    it "should follow the commutative law" do
+        evaluate("(2+3)*5").should == evaluate("5*(2+3)")
+    end
 end
