@@ -1,3 +1,0 @@
-class PCalcLexerSpecification < Dhaka::LexerSpecification
-
-end
