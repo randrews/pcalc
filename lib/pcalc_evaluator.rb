@@ -40,8 +40,10 @@ class PCalcEvaluator < Dhaka::Evaluator
             send "for_#{name}" do
                 evaluate child_nodes[2]
                 right = @stack.pop
-                left = reg
-                @str.puts "  set $N#{left}, #{child_nodes[0].token.value}"
+
+                evaluate child_nodes[0]
+                left = @stack.pop
+
                 @str.puts "  #{opcode} $N#{left}, $N#{left}, $N#{right}"
                 @stack.push left
             end

@@ -9,12 +9,16 @@ class PCalcGrammar < Dhaka::Grammar
     end
 
     for_symbol 'Expression' do
+        multiply %w| Term * Expression |
+        divide %w| Term / Expression |
+        modulus %w| Term % Expression |
+        add %w| Term + Expression |
+        subtract %w| Term - Expression |
+        one_term %w| Term |
+    end
+
+    for_symbol 'Term' do
         number %w| number |
-        multiply %w| number * Expression |
-        divide %w| number / Expression |
-        modulus %w| number % Expression |
-        add %w| number + Expression |
-        subtract %w| number - Expression |
         parens %w| ( Expression ) |
     end
 end
